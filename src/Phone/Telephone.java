@@ -4,10 +4,10 @@ package Phone;
  * Created by User on 09.03.2016.
  */
 public class Telephone {
-    String model;
-    String number;
-    String imei;
-    Integer switchoff;
+    public String model;
+    public String number;
+    public String imei;
+    public int switchoff;
 
     public Telephone(String model, String number, String imei, Integer switchoff) {
         this.model = model;
@@ -15,7 +15,7 @@ public class Telephone {
         this.imei = imei;
         this.switchoff = switchoff;
     }
-    String getPhoneNumber(){
+    public String getPhoneNumber(){
         return number;
     }
 }
