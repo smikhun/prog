@@ -3,7 +3,7 @@ package Home3;
 import java.util.PrimitiveIterator;
 
 /**
- * Created by User on 16.03.2016.
+ * Created by User on 15.03.2016.
  */
 public class Group{
     private Student[] students = new Student[10];

@@ -1,7 +1,7 @@
 package Home3;
 
 /**
- * Created by User on 16.03.2016.
+ * Created by User on 15.03.2016.
  */
 public class People {
     private String name;
