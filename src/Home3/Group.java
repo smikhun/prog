@@ -42,7 +42,11 @@ public class Group{
             }
         }
         if(resultcount ==0){
-            System.out.println("Sorry,student missing");
+            try{
+                throw new NullPointerException("In this group there is no student");
+            }catch (NullPointerException e){
+                System.out.print(e.getMessage());
+            }
         }
     }
 }

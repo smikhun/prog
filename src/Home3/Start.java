@@ -37,7 +37,7 @@ public class Start {
         /////////////////////
         gr1.showAllStudents();
 
-        gr1.searchStudents("Smikhun");
+        gr1.searchStudents("Blala");
 
     }
 
