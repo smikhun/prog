@@ -43,7 +43,6 @@ public class Group{
         }
         if(resultcount ==0){
             System.out.println("Sorry,student missing");
-
         }
     }
 }
