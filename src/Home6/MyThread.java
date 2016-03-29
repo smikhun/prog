@@ -18,15 +18,17 @@ public class MyThread extends Thread {
     public void run() {
         synchronized (this){
         if(id == 0 || id == 1){
-            System.out.println("Factirial "+ id + " - " + id );
+            System.out.println("Factorial "+ id + " - " + id );
         }else {
-        BigInteger f = BigInteger.valueOf(1);
+
+            BigInteger tmp, f;
+            f = BigInteger.valueOf(1);
+
             for (int i=1; i<=id; i++){
-
-            f.multiply(BigInteger.valueOf(i));
+             tmp = f;
+            f = tmp.multiply(BigInteger.valueOf(i));
         }
-
-        System.out.println("Factirial " + id + " - " + f.toString() );
+        System.out.println("Factorial " + id + " - " + f.toString());
         }
         }
 
