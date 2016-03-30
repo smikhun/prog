@@ -23,7 +23,7 @@ public class Task2 {
         long traceTime2 = end2-start2;
         System.out.println("One Thread MiliSec = " + traceTime2/1000000);
 
-        int sizeTread = 3;                             // numbers thread
+        int sizeTread = 6;                             // numbers thread
         int sizeArrThread = sizeArraySumm/sizeTread;    //size Array in Thread
         ArrThread[] arr1 = new ArrThread[sizeTread];      // create array Threads
 
