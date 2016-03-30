@@ -8,18 +8,22 @@ public class Task2 {
     public static void main(String[] args) {
 
         //Create ARRAY
-        int sizeArraySumm = 10000000;
+        int sizeArraySumm = 1000000;
         //create Array
         int[] arr = new int[sizeArraySumm];
         for (int i=0; i < arr.length;i++){
             arr[i] = 1+ (int)(Math.random()*(2000000 - 1)+1);
         }
+
         //Print Array
         // for (int i = 0; i < arr.length; i++) System.out.println("ch " + arr[i]);
+        long start2 = System.nanoTime();
+         oneThread(arr);
+        long end2 = System.nanoTime();
+        long traceTime2 = end2-start2;
+        System.out.println("One Thread MiliSec = " + traceTime2/1000000);
 
-
-
-        int sizeTread = 8;                             // numbers thread
+        int sizeTread = 3;                             // numbers thread
         int sizeArrThread = sizeArraySumm/sizeTread;    //size Array in Thread
         ArrThread[] arr1 = new ArrThread[sizeTread];      // create array Threads
 
@@ -27,6 +31,7 @@ public class Task2 {
         int countStart = 0;
 
         long start = System.nanoTime();
+
         for (int i = 0; i < arr1.length; i++){ //create and run threads
 
             int [] arrThread = new int [sizeArrThread];
@@ -37,19 +42,29 @@ public class Task2 {
                 arrThread[c] = arr[j];
                 c++;
             }
+            countStart = countEnd;
             arr1[i] = new ArrThread(sizeArrThread, arrThread);
             arr1[i].start();
-        }
-       /* long threadSum = 0;
-        for (int i = 0; i < arr.length; i++){
 
-          threadSum += arr1[i].getSum();
         }
-        System.out.println("SUMMA = " + threadSum);      */
 
+
+        System.out.println("tmp = " + tmp);
         long end = System.nanoTime();
         long traceTime = end-start;
         System.out.println("MiliSec = " + traceTime/1000000);
 
+    }
+    static long tmp = 0;
+    static void plus (long arrsum){
+        tmp +=arrsum;
+    }
+
+    static void oneThread(int[] arr){
+        long sum = 0;
+        for (int i: arr){
+            sum += i;
+        }
+        System.out.println("One Thread Sum = " + sum);
     }
 }

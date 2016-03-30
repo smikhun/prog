@@ -15,19 +15,25 @@ public class ArrThread extends Thread{
 
     }
 
-
-
-    public long getSum() {
-        return sum;
-    }
-
     @Override
-    public void run() {
-        int summa = 0;
+    public synchronized void run() {
+        long summa = 0;
         for (int i = 0; i < arr.length; i++) {
             summa += arr[i];
         }
         this.sum = summa;
+        Task2.plus(summa);
+        //System.out.println("sum = " + sum);
+    }
+
+    public void printSum(){
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("sum = " + sum);
+        }
+
+
+
     }
 
 }
