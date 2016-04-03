@@ -6,7 +6,7 @@ package Home6;
 public class ArrThread extends Thread{
     int[] arr;
     int arrsize;
-    long sum;
+    public long sum;
 
     public ArrThread(int arrsize, int[] arr5) {
         this.arrsize = arrsize;
@@ -14,25 +14,16 @@ public class ArrThread extends Thread{
         this.sum = 0;
 
     }
+    public long getSum(){
+        return sum;
+    }
 
     @Override
     public synchronized void run() {
-        long summa = 0;
-        for (int i = 0; i < arr.length; i++) {
-            summa += arr[i];
+
+        for (int i = 0; i < this.arr.length; i++) {
+            sum += arr[i];
         }
-        this.sum = summa;
-        Task2.plus(summa);
-        //System.out.println("sum = " + sum);
-    }
-
-    public void printSum(){
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println("sum = " + sum);
-        }
-
-
 
     }
 
