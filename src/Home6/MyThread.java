@@ -32,11 +32,5 @@ public class MyThread extends Thread {
         }
         }
 
-        /*for (int i = 0; i < 100; i++){
-            System.out.println(" Thread" + id + "  -    " + i);
-            try {
-                Thread.sleep(time);
-            }catch (InterruptedException e){}
-        } */
     }
 }

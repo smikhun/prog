@@ -5,6 +5,7 @@ package Home6;
  */
 public class Main {
     public static void main(String[] args) {
+
         int sizeArray = 100;
         Thread[] fact = new MyThread[sizeArray];
 
