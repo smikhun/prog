@@ -4,8 +4,8 @@ package Home6;
  * Created by User on 29.03.2016.
  */
 public class ArrThread extends Thread{
-    int[] arr;
-    int arrsize;
+    private int[] arr;
+    private int arrsize;
     public long sum;
 
     public ArrThread(int arrsize, int[] arr5) {

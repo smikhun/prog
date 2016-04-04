@@ -22,6 +22,10 @@ public class Person {
         return age;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
     public Person() {
     }
 
@@ -37,7 +41,6 @@ public class Person {
         this.sex = sex;
     }
 
-    /////////////////////////////////////////////////////////
     public void printStudent(){
         System.out.print("Name " + name + " Sex " + sex + " Age " +  age);
     }

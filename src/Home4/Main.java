@@ -1,5 +1,6 @@
 package Home4;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -14,43 +15,80 @@ public class Main {
         Group gr1 = new Group(1 , "IT");
 
 
-
-
         try {
             gr1.testGroup();
         }catch (IndexOutOfBoundsException e) {
             System.out.print("Sorry, no free seats ");}
-        /*Student st1 = new Student();
-        st1.setStudentsData();
 
-        Student st2 = new Student();
-        st2.setStudentsData();*/
+        for (; ;){
 
-        Student st1 = new Student("Vovk", 25, "man", 1, "programmer");
-        Student st2 = new Student("Smikhun", 25, "man", 1, "programmer");
-        Student st3 = new Student("Boyko", 25, "man", 1, "programmer");
+        System.out.println("Set number menu ");
+        System.out.println("1 Students ");
+        System.out.println("2 Teacher ");
+        System.out.println("0 Exit ");
 
-        try {
-            gr1.testGroup();
-            gr1.addStudent(st1);
-            gr1.testGroup();
-            gr1.addStudent(st2);
-            gr1.testGroup();
-            gr1.addStudent(st3);
-        }catch (IndexOutOfBoundsException e){
-            System.out.print("Sorry, no free seats " + e);
+        Scanner sc = new Scanner(System.in);
+        int choes = sc.nextInt();
+
+        switch (choes) {
+            case 1:
+                System.out.println("Students ");
+                System.out.println("Set number menu");
+                System.out.println("1 Add students");
+                System.out.println("2 Dell students");
+                System.out.println("3 Search Students");
+                System.out.println("4 Sort Group students");
+                System.out.println("5 Save Group In File");
+                System.out.println("6 Download Group out File");
+                System.out.println("7 Print Groups' Students");
+                System.out.println("0 Exit");
+                Scanner scan = new Scanner(System.in);
+                int ind = scan.nextInt();
+                switch (ind) {
+                    case 1:
+                        try {
+                            gr1.testGroup();
+                            gr1.addStudent();
+                        } catch (IndexOutOfBoundsException e) {
+                            System.out.println(e);
+                        }
+                        break;
+                    case 2:
+                        gr1.dellStudent();
+                        break;
+                    case 3:
+                        gr1.searchPerson();
+                        break;
+                    case 4:
+                        Arrays.sort(gr1.getStudents());
+                        break;
+                    case 5:
+                        try {
+                            gr1.saveInFile();
+                        } catch (IOException e) {
+                            System.out.println(e);
+                        }
+                        break;
+                    case 6:
+                        try {
+                            gr1.downloadOutFile();
+                        }catch (IOException e){System.out.println(e);}
+                        break;
+                    case 7: gr1.showAllPersons();
+                    case 0:
+                        break;
+                }
+
+
+                break;
+            case 2:
+                System.out.print("Hello Teacher");
+                break;
+            case 0:
+                return;
+
+
         }
-
-        //gr1.searchPerson();
-        //gr1.dellStudent(st1);
-        //gr1.showAllPersons();
-
-            Arrays.sort(gr1.getStudents());
-
-        gr1.showAllPersons();
-        }
-
-
-
-
+    } }
 }
+

@@ -52,6 +52,10 @@ public class Student extends Person implements Comparable{
         return specialty;
     }
 
+    public int getKurs() {
+        return kurs;
+    }
+
     public void setStudentsData(){
         Scanner sc = new Scanner(System.in);
 
@@ -91,7 +95,10 @@ public class Student extends Person implements Comparable{
         int a = getName().compareTo(tmp.getName());
         return a;
 
+    }
 
-
+    @Override
+    public String toString() {
+        return getName()+ " " + getAge()+ " " + getSex() + " "+ getKurs()+ " " + getSpecialty();
     }
 }
