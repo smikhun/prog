@@ -77,10 +77,7 @@ public class Main {
                     case 7: gr1.showAllPersons();
                     case 0:
                         break;
-                }
-
-
-                break;
+                }break;
             case 2:
                 System.out.print("Hello Teacher");
                 break;
