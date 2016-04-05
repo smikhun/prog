@@ -15,8 +15,7 @@ public class MyThread extends Thread {
     }
 
     @Override
-    public void run() {
-        synchronized (this){
+    public void run()   {
         if(id == 0 || id == 1){
             System.out.println("Factorial "+ id + " - " + id );
         }else {
@@ -30,7 +29,7 @@ public class MyThread extends Thread {
         }
         System.out.println("Factorial " + id + " - " + f.toString());
         }
-        }
+
 
     }
 }
