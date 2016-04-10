@@ -14,6 +14,7 @@ public class ArrThread extends Thread{
         this.end = end;
         this.arr = arr;
         this.sum = 0;
+        this.start();
 
     }
     public long getSum(){

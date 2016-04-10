@@ -1,0 +1,9 @@
+txt	text file
+html	text internet file
+mp3	sound
+avi	video
+doc	Word document
+xls	Execel document
+java	java source code
+cpp	c++ source code
+f90	fortan source code

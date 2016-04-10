@@ -13,7 +13,7 @@ public class Task2 {
         //create Array
         int[] arr = new int[sizeArraySumm];
         for (int i=0; i < arr.length;i++){
-            arr[i] = 1+ (int)(Math.random()*(200000 - 1)+1);
+            arr[i] = 1+ (int)(Math.random()*(20000000 - 1)+1);
         }
 
         long start2 = System.nanoTime();
@@ -25,20 +25,20 @@ public class Task2 {
 
 
         long start = System.nanoTime();
-        multiThreads(8,sizeArraySumm,arr);
+        multiThreads(2,sizeArraySumm,arr);
         long end = System.nanoTime();
         long traceTime = end-start;
         System.out.println("MiliSec = " + traceTime/1000000);
 
 
+
     }
 
     static void plus (ArrThread[] arr1){
+
         long tmpSum = 0;
-        for (int v = 0; v < arr1.length; v++){
-
-            tmpSum += arr1[v].getSum();
-
+        for (int i = 0; i < arr1.length; i++){
+            tmpSum += arr1[i].getSum();
         }
         System.out.println("Multi Sum  = " + tmpSum);
     }
@@ -59,21 +59,14 @@ public class Task2 {
         for (int i = 0; i < arr1.length; i++){
             int countEnd = countStart + sizeArrThread;
             arr1[i] = new ArrThread(arr, countStart, countEnd);
+            try {
+                  arr1[i].join();
+            }catch (InterruptedException e) {}
             countStart = countEnd;
         }
 
-        startTread(arr1);
+
         plus(arr1);
-    }
-
-    static void startTread(ArrThread[] arr1){
-
-        for (int i = 0; i <arr1.length; i++){
-             arr1[i].start();
-            try{
-          arr1[i].join();
-          }catch (InterruptedException e){}
-        }
     }
 
 }
