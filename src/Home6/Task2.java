@@ -53,16 +53,19 @@ public class Task2 {
     static void multiThreads(int numbersTread, int sizeArraySumm, int[] arr){
 
         ArrThread[] arr1 = new ArrThread[numbersTread];
-        int sizeArrThread = sizeArraySumm/numbersTread;
-        int countStart = 0;
-
+        int sizeArrThread = arr.length/numbersTread;
         for (int i = 0; i < arr1.length; i++){
-            int countEnd = countStart + sizeArrThread;
-            arr1[i] = new ArrThread(arr, countStart, countEnd);
+            int start = sizeArrThread * i;
+            int end = ((i + 1) *sizeArrThread );
+            if ((arr.length - end) < sizeArrThread) {
+                end = arr.length;
+            }
+
+            arr1[i] = new ArrThread(arr, start, end);
             try {
                   arr1[i].join();
             }catch (InterruptedException e) {}
-            countStart = countEnd;
+
         }
 
 
