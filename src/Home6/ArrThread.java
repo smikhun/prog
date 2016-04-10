@@ -5,12 +5,14 @@ package Home6;
  */
 public class ArrThread extends Thread{
     private int[] arr;
-    private int arrsize;
+    int begin;
+    int end;
     public long sum;
 
-    public ArrThread(int arrsize, int[] arr5) {
-        this.arrsize = arrsize;
-        this.arr = arr5;
+    public ArrThread(int[] arr, int begin, int end) {
+        this.begin = begin;
+        this.end = end;
+        this.arr = arr;
         this.sum = 0;
 
     }
@@ -21,7 +23,7 @@ public class ArrThread extends Thread{
     @Override
     public synchronized void run() {
 
-        for (int i = 0; i < this.arr.length; i++) {
+        for (int i = begin; i < end; i++) {
             sum += arr[i];
         }
 
