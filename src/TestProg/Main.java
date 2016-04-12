@@ -8,20 +8,20 @@ import java.nio.Buffer;
 public class Main {
     public static void main(String[] args) throws IOException{
 
-       File file = new File("d:/text.txt");
-        FileWriter tmp = new FileWriter(file);
-        tmp.append("aaa \r\n");
+     //  File file = new File("d:/text.txt");
+       // FileWriter tmp = new FileWriter(file);
+       // tmp.append("aaa \r\n");
 
-        tmp.flush();
+       // tmp.flush();
 
-       /* FileReader sk = new FileReader("C:/Users/User/Desktop/Melnichenko.txt");
+        FileReader sk = new FileReader("C:/Users/User/Desktop/Melnichenko.txt");
         BufferedReader tmsk = new BufferedReader(sk);
         String line = " ";
         while ((line = tmsk.readLine())!= null ){
             System.out.println(line);
         }
         sk.close();
-        tmsk.close();   */
+        tmsk.close();
 
     }
 }
