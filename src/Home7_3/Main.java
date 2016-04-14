@@ -15,14 +15,13 @@ public class Main {
         String foldermap = sc.next();
         File folder = new File(foldermap);
         ///////////
-        deleteRecurs(folder);
+        deleteRecurs(folder).delete();
 
     }
 
-    static void deleteRecurs(File folder) {
+    static File deleteRecurs(File folder)  {
         if (folder.list().length == 0) {
-        folder.delete();
-
+        return folder;
         } else {
 
             String[] ls = folder.list();
@@ -31,14 +30,12 @@ public class Main {
 
                 System.out.println(" -- " + tmp.getAbsolutePath());
 
-                if (tmp.isDirectory()) { deleteRecurs(tmp);}else{
+                if (tmp.isDirectory()) { deleteRecurs(tmp).delete();
+                }else{
                     tmp.delete();
+                    }
                 }
-                //tmp.
-
             }
-
-
-        }
+        return folder;
     }
 }
