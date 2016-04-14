@@ -19,23 +19,25 @@ public class Main {
 
     }
 
-    static File deleteRecurs(File folder)  {
-        if (folder.list().length == 0) {
-        return folder;
-        } else {
+    static File deleteRecurs(File folder) {
+        try {
+            if (folder.list().length == 0) {
+                return folder;
+            } else {
 
-            String[] ls = folder.list();
-            for (int i = 0; i < ls.length; i++) {
-                File tmp = new File(folder.getAbsolutePath() + "/" + ls[i]);
+                String[] ls = folder.list();
+                for (int i = 0; i < ls.length; i++) {
+                    File tmp = new File(folder.getAbsolutePath() + "/" + ls[i]);
 
-                System.out.println(" -- " + tmp.getAbsolutePath());
+                    System.out.println(" -- " + tmp.getAbsolutePath());
 
-                if (tmp.isDirectory()) { deleteRecurs(tmp).delete();
-                }else{
-                    tmp.delete();
+                    if (tmp.isDirectory()) { deleteRecurs(tmp).delete();
+                    }else{
+                        tmp.delete();
                     }
                 }
             }
+        }catch (NullPointerException e){System.out.print("Wrong address folder");}
         return folder;
     }
 }
